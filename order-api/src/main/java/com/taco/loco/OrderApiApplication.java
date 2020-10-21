@@ -31,7 +31,7 @@ public class OrderApiApplication {
 				.select()
 				.apis(RequestHandlerSelectors.basePackage("com.taco.loco.controller"))
 //				.paths(PathSelectors.any())
-				.paths(regex("/order.*"))
+				.paths(regex("/taco-loco/api.*"/*"/order.*"*/))
 				.build()
 				.apiInfo(new ApiInfo(
 						"REST API",
