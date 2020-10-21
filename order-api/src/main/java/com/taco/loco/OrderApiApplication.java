@@ -6,6 +6,9 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import com.taco.loco.domain.MenuItemModel;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.web.servlet.config.annotation.CorsRegistry;
+import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
+import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter;
 import springfox.documentation.builders.PathSelectors;
 import springfox.documentation.builders.RequestHandlerSelectors;
 import springfox.documentation.service.ApiInfo;
@@ -30,7 +33,6 @@ public class OrderApiApplication {
 		return new Docket(DocumentationType.SWAGGER_2)
 				.select()
 				.apis(RequestHandlerSelectors.basePackage("com.taco.loco.controller"))
-//				.paths(PathSelectors.any())
 				.paths(regex("/taco-loco/api.*"/*"/order.*"*/))
 				.build()
 				.apiInfo(new ApiInfo(
@@ -42,4 +44,13 @@ public class OrderApiApplication {
 						"", "", Collections.emptyList()));
 	}
 
+	@Bean
+	public WebMvcConfigurer corsConfigurer() {
+		return new WebMvcConfigurer() {
+			@Override
+			public void addCorsMappings(CorsRegistry registry) {
+				registry.addMapping("/**").allowedOrigins();
+			}
+		};
+	}
 }

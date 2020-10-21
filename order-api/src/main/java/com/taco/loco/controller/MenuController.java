@@ -1,28 +1,32 @@
 package com.taco.loco.controller;
 
 import com.taco.loco.domain.OrderModel;
+import com.taco.loco.service.MenuItemService;
 import com.taco.loco.service.OrderService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
 
+/**
+ * Entry point for all menu-item related operations through the API.
+ */
 @RestController
 @RequestMapping(path = "/api/menu")
 public class MenuController {
 
     @Autowired
-    OrderService orderService;
+    MenuItemService menuItemService;
 
-    @GetMapping(produces = MediaType.APPLICATION_JSON_VALUE)
+    @GetMapping(path = "/items", produces = MediaType.APPLICATION_JSON_VALUE)
     @ResponseStatus(HttpStatus.OK)
     public @ResponseBody OrderModel GetMenuItems() {
-        return orderService.GetMenuItems();
+        return menuItemService.GetMenuItems();
     }
 
-    @GetMapping(path = "/{id}", produces = MediaType.APPLICATION_JSON_VALUE)
+    @GetMapping(path = "/item/{id}", produces = MediaType.APPLICATION_JSON_VALUE)
     @ResponseStatus(HttpStatus.OK)
     public @ResponseBody OrderModel GetMenuItem(@PathVariable(name = "id") long id) {
-        return orderService.GetMenuItem(id);
+        return menuItemService.GetMenuItem(id);
     }
 }

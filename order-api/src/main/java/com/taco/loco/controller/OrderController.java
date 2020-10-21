@@ -8,6 +8,9 @@ import org.springframework.http.MediaType;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
+/**
+ * Entry point for all order related operations through the API.
+ */
 @RestController
 @RequestMapping(path = "/api/order")
 public class OrderController {
