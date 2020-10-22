@@ -11,6 +11,7 @@ import org.springframework.stereotype.Service;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
+import java.util.logging.Logger;
 import java.util.stream.Collectors;
 
 /**
@@ -18,6 +19,8 @@ import java.util.stream.Collectors;
  */
 @Service
 public class MenuItemServiceImpl implements MenuItemService {
+
+    private static final Logger LOGGER = Logger.getLogger(MenuItemServiceImpl.class.getName());
 
     @Autowired
     private MenuItemRepository itemRepository;
@@ -69,6 +72,7 @@ public class MenuItemServiceImpl implements MenuItemService {
             response.setItems(menuItems);
             return response;
         }
+        LOGGER.severe("Menu item#" + id + " is not available.");
         throw new MenuItemNotFoundException("Menu item#" + id + " does not exit.");
     }
 }

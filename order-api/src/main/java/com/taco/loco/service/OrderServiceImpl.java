@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.Optional;
+import java.util.logging.Logger;
 import java.util.stream.Collectors;
 
 /**
@@ -15,6 +16,8 @@ import java.util.stream.Collectors;
  */
 @Service
 public class OrderServiceImpl implements OrderService {
+
+    private static final Logger LOGGER = Logger.getLogger(OrderServiceImpl.class.getName());
 
     @Autowired
     private MenuItemService menuItemService;
@@ -78,6 +81,7 @@ public class OrderServiceImpl implements OrderService {
             String itemNames = tempRequest.getItems().stream()
                     .map(item -> item.getName())
                     .collect(Collectors.joining(","));
+            LOGGER.severe("Received invalid request. " + error);
             throw new InvalidOrderException(error + itemNames);
         }
     }
