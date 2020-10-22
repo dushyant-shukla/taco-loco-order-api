@@ -19,14 +19,14 @@ import java.util.stream.Collectors;
 public class ExceptionHandler {
 
     @org.springframework.web.bind.annotation.ExceptionHandler(InvalidOrderException.class)
-    public ResponseEntity<ApiErrorModel> HandleInvalidOrderException(InvalidOrderException exception) {
+    public ResponseEntity<ApiErrorModel> handleInvalidOrderException(InvalidOrderException exception) {
         List<String> errors = new ArrayList<>();
         errors.add(exception.getMessage());
         return new ResponseEntity<ApiErrorModel>(new ApiErrorModel(errors), HttpStatus.BAD_REQUEST);
     }
 
     @org.springframework.web.bind.annotation.ExceptionHandler(MethodArgumentNotValidException.class)
-    public ResponseEntity<ApiErrorModel> HandleMethodArgumentsNotValid(MethodArgumentNotValidException exception) {
+    public ResponseEntity<ApiErrorModel> handleMethodArgumentsNotValid(MethodArgumentNotValidException exception) {
         List<String> errors = exception.getBindingResult().getFieldErrors().stream()
                 .map(result -> result.getField() + " : " + result.getDefaultMessage())
                 .collect(Collectors.toList());
@@ -34,14 +34,14 @@ public class ExceptionHandler {
     }
 
     @org.springframework.web.bind.annotation.ExceptionHandler(MenuItemNotFoundException.class)
-    public ResponseEntity<ApiErrorModel> HandleInternalServerError(MenuItemNotFoundException exception) {
+    public ResponseEntity<ApiErrorModel> handleMenuItemNotFoundError(MenuItemNotFoundException exception) {
         List<String> errors = new ArrayList<>();
         errors.add(exception.getMessage());
         return new ResponseEntity<ApiErrorModel>(new ApiErrorModel(errors), HttpStatus.NOT_FOUND);
     }
 
     @org.springframework.web.bind.annotation.ExceptionHandler(Exception.class)
-    public ResponseEntity<ApiErrorModel> HandleInternalServerError(Exception exception) {
+    public ResponseEntity<ApiErrorModel> handleInternalServerError(Exception exception) {
         List<String> errors = new ArrayList<>();
         errors.add("Something bad has happened, but it is not your fault. We are looking into it. Please try again after some time.");
         return new ResponseEntity<ApiErrorModel>(new ApiErrorModel(errors), HttpStatus.INTERNAL_SERVER_ERROR);

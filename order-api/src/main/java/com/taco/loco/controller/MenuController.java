@@ -19,13 +19,13 @@ public class MenuController {
 
     @GetMapping(path = "/items", produces = MediaType.APPLICATION_JSON_VALUE)
     @ResponseStatus(HttpStatus.OK)
-    public @ResponseBody OrderModel GetMenuItems() {
+    public @ResponseBody OrderModel getMenuItems() {
         return menuItemService.getAllMenuItems();
     }
 
     @GetMapping(path = "/item/{id}", produces = MediaType.APPLICATION_JSON_VALUE)
     @ResponseStatus(HttpStatus.OK)
-    public @ResponseBody OrderModel GetMenuItem(@PathVariable(name = "id") long id) {
+    public @ResponseBody OrderModel getMenuItem(@PathVariable(name = "id") long id) {
         return menuItemService.getMenuItem(id);
     }
 }
