@@ -194,24 +194,24 @@ RETURNS
     {
       "id": 1,
       "name": "Veggie Taco",
-      "price": 2.5
+      "price": 2.5,
+      "quantity": 4
     },
     {
       "id": 2,
       "name": "Chicken Taco",
-      "price": 3
+      "price": 3,
+      "quantity": 2
     },
     {
       "id": 3,
       "name": "Beef Taco",
-      "price": 3
-    },
-    {
-      "id": 4,
-      "name": "Chorizo Taco",
-      "price": 3.5
+      "price": 3,
+      "quantity": 2
     }
-  ]
+  ],
+  "total-price": 22,
+  "discounted-price": 17.6
 }
 ```
 
