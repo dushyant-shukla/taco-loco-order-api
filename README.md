@@ -4,8 +4,8 @@
 
 ```
 This project contains:
-    1. A REST-based microservice API  with Spring-Boot for processing Taco-Loco customer orders built.
-    2. A minimalist web-application built with Angular 9.0 to serve as unser interface.
+    1. A REST-based microservice API built with Spring-Boot for processing Taco-Loco customer orders.
+    2. A minimalist web-application built with Angular 9.0 to serve as user interface.
 
 Version : 0.0.1
 Author  : Dushyant Shukla
