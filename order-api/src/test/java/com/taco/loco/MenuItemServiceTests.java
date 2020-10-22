@@ -33,8 +33,8 @@ class MenuItemServiceTests {
 
 	MenuItemServiceTests() {
 		menuItems = new ArrayList<>();
-		item1 = new MenuItem(1, "item1", 2.5);
-		item2 = new MenuItem(2, "item2", 3.5);
+		item1 = new MenuItem(1L, "item1", 2.5);
+		item2 = new MenuItem(2L, "item2", 3.5);
 		menuItems.add(item1);
 		menuItems.add(item2);
 	}

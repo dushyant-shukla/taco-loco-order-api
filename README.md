@@ -4,8 +4,8 @@
 
 ```
 This project contains:
-    1. A REST-based microservice API built with Spring-Boot for processing Taco-Loco customer orders.
-    2. A minimalist web-application built with Angular 9.0 to serve as user interface.
+    1. A REST-based microservice API built with Spring-Boot v2.3.4 for processing Taco-Loco customer orders.
+    2. A minimalist web-application built with Angular v10.0 to serve as user interface.
 
 Version : 0.0.1
 Author  : Dushyant Shukla
@@ -67,6 +67,17 @@ http://localhost:7070/taco-loco/swagger-ui/
 Once the application has started, the application should be accessible at:
 ```
 http://localhost:4200
+```
+
+</br>
+</br>
+
+### ACCESS IN-MEMORY DATABASE CONSOLE AT
+```
+http://localhost:7070/taco-loco/h2-console
+
+username: user
+password: youshallnotpass
 ```
 
 </br>
