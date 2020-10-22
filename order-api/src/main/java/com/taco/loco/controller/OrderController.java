@@ -21,6 +21,6 @@ public class OrderController {
     @PostMapping( consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
     @ResponseStatus(HttpStatus.OK)
     public @ResponseBody OrderModel CalculateTotal(@RequestBody @Validated OrderModel request) throws CloneNotSupportedException {
-        return orderService.CalculateTotal(request);
+        return orderService.calculateTotal(request);
     }
 }

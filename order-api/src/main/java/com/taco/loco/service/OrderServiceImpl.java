@@ -27,14 +27,14 @@ public class OrderServiceImpl implements OrderService {
      * @throws CloneNotSupportedException
      */
     @Override
-    public OrderModel CalculateTotal(OrderModel request) throws CloneNotSupportedException {
+    public OrderModel calculateTotal(OrderModel request) throws CloneNotSupportedException {
         List<Long> requestedItemIds = request.getItems()
                 .stream()
                 .map(item -> item.getId())
                 .collect(Collectors.toList());
 
         // get all the menu items from database
-        List<MenuItemModel> availableItems = (List<MenuItemModel>) menuItemService.GetMenuItemsByItemIds(requestedItemIds);
+        List<MenuItemModel> availableItems = (List<MenuItemModel>) menuItemService.getMenuItemsByItemIds(requestedItemIds);
 
         // validate menu items received in request against items from database
         ValidateRequest(request, availableItems);

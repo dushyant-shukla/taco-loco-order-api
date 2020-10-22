@@ -7,9 +7,9 @@ import java.util.List;
 
 public interface MenuItemService {
 
-    public OrderModel GetMenuItems();
+    public OrderModel getAllMenuItems();
 
-    public List<MenuItemModel> GetMenuItemsByItemIds(List<Long> ids);
+    public List<MenuItemModel> getMenuItemsByItemIds(List<Long> ids);
 
-    public OrderModel GetMenuItem(long id);
+    public OrderModel getMenuItem(long id);
 }

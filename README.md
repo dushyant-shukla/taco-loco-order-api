@@ -4,32 +4,43 @@
 
 ```
 This project contains:
-    1. A REST-based microservice API for processing Taco-Loco customer orders.
-    2. A minimalist web-application to to server as unser interface.
+    1. A REST-based microservice API  with Spring-Boot for processing Taco-Loco customer orders built.
+    2. A minimalist web-application built with Angular 9.0 to serve as unser interface.
 
 Version : 0.0.1
 Author  : Dushyant Shukla
+
+SYSTEM REQUIREMENTS:
+1. Java SE 8/11/15
+2. Maven
+3. NodeJS
 ```
 </br>
 </br>
 
-## BUILDIND THE APPLICATION
+## BUILDIND THE APPLICATIONS
+
+</br>
+
+### CLONE THE APPLICATION
+```
+git clone https://github.com/dushyant-shukla/taco-loco-order-api.git
+```
 
 </br>
 
 ### STEPS TO BUILD AND RUN SERVER SIDE APPLICATION
 
-* ```git clone https://github.com/dushyant-shukla/taco-loco-order-api.git```
-* ```cd order-api```
-* ```mvn clean install```
-* ```cd target```
-* ```java -jar order-api-0.0.1.jar```
+* ```run "cd order-api"```
+* ```run "mvn clean install"```
+* ```run "cd target"```
+* ```run "java -jar order-api-0.0.1.jar"```
 
-OR
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; OR
 
-* ```git clone https://github.com/dushyant-shukla/taco-loco-order-api.git```
-* ```cd order-api```
-* ```mvn spring-boot:run```
+* ```run "cd order-api"```
+* ```run "mvn spring-boot:run"```
+
 
 </br>
 
@@ -44,13 +55,28 @@ http://localhost:7070/taco-loco/swagger-ui/
 
 
 </br>
+</br>
+
+### STEPS TO BUILD AND RUN THE WEB APP
+* ```run "cd web-app"```
+* ```run "npm install"```
+* ```run "npm start"```
+
+</br>
+
+Once the application has started, the application should be accessible at:
+```
+http://localhost:4200
+```
+
+</br>
 
 ### API
 ---
 
 #### BASE URL:
 ```
-http::{host}:{port}/api
+http:://{host}:{port}/api
 ```
 
 </br>

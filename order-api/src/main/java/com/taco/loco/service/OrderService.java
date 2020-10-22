@@ -4,5 +4,5 @@ import com.taco.loco.domain.OrderModel;
 
 public interface OrderService {
 
-    public OrderModel CalculateTotal(final OrderModel request) throws CloneNotSupportedException;
+    public OrderModel calculateTotal(final OrderModel request) throws CloneNotSupportedException;
 }

@@ -27,7 +27,7 @@ public class MenuItemServiceImpl implements MenuItemService {
      * @return {@link OrderModel} details of all
      */
     @Override
-    public OrderModel GetMenuItems() {
+    public OrderModel getAllMenuItems() {
         OrderModel response = new OrderModel();
         List<MenuItem> availableItems = (List<MenuItem>) itemRepository.findAll();
         List<MenuItemModel> menuItems = availableItems.stream()
@@ -44,7 +44,7 @@ public class MenuItemServiceImpl implements MenuItemService {
      * @return List of {@link MenuItemModel} containing details of the requested menu-item(s)
      */
     @Override
-    public List<MenuItemModel> GetMenuItemsByItemIds(List<Long> ids) {
+    public List<MenuItemModel> getMenuItemsByItemIds(List<Long> ids) {
         List<MenuItem> availableItems = (List<MenuItem>) itemRepository.findAllById(ids);
         return availableItems.stream()
                 .map(item -> new MenuItemModel(item.getId(), item.getName(), item.getPrice()))
@@ -59,7 +59,7 @@ public class MenuItemServiceImpl implements MenuItemService {
      * @return {@link OrderModel} details of the menu-item requested
      */
     @Override
-    public OrderModel GetMenuItem(long id) {
+    public OrderModel getMenuItem(long id) {
         Optional<MenuItem> item = itemRepository.findById(id);
         if(item.isPresent()) {
             MenuItem menuItem = item.get();

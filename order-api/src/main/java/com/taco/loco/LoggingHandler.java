@@ -14,6 +14,10 @@ import org.springframework.stereotype.Component;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+/**
+ * An AOP based logger to log POST requests to the API.
+ * Functionality of this class is inspired from this article: https://medium.com/@ThreePotatoteers/use-spring-aop-to-log-post-requests-6abee5753464
+ */
 @Aspect
 @Component
 public class LoggingHandler {

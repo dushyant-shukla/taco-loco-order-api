@@ -1,14 +1,11 @@
 package com.taco.loco.domain;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.fasterxml.jackson.annotation.JsonIgnoreType;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.taco.loco.entity.MenuItem;
 import lombok.*;
 
 import javax.validation.constraints.Min;
 import javax.validation.constraints.NotBlank;
-import javax.validation.constraints.Size;
 
 @Data
 @NoArgsConstructor
@@ -16,19 +13,19 @@ import javax.validation.constraints.Size;
 @AllArgsConstructor
 public class MenuItemModel {
 
-    @Min(value = 1, message = "minimum value for id is 1")
+    @Min(value = 1, message = "minimum value for 'id' is 1")
     @NonNull
     private long id;
 
-    @NotBlank(message = "name may not be blank")
+    @NotBlank(message = "'name' must not be blank")
     @NonNull
     private String name;
 
-    @Min(value = 1, message = "minimum value for price is 1")
+    @Min(value = 1, message = "minimum value for 'price' is 1")
     @JsonInclude(JsonInclude.Include.NON_DEFAULT)
     private double price;
 
-    @Min(value = 1, message = "minimum value for price is 1")
+    @Min(value = 1, message = "minimum value for 'quantity' is 1")
     @JsonInclude(JsonInclude.Include.NON_DEFAULT)
     private int quantity;
 
