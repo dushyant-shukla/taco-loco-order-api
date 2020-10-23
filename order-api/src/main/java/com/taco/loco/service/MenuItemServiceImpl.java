@@ -26,6 +26,7 @@ public class MenuItemServiceImpl implements MenuItemService {
     private MenuItemRepository itemRepository;
 
     /**
+     * This method returns the details of all available menu-item(s).
      *
      * @return {@link OrderModel} details of all
      */

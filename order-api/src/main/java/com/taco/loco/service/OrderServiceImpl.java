@@ -4,6 +4,7 @@ import com.taco.loco.domain.MenuItemModel;
 import com.taco.loco.domain.OrderModel;
 import com.taco.loco.exception.InvalidOrderException;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -21,6 +22,9 @@ public class OrderServiceImpl implements OrderService {
 
     @Autowired
     private MenuItemService menuItemService;
+
+    @Value("${api.taco.loco.discount.rate}")
+    private double discountRate;
 
     /**
      * This method calculates total price for the items received in the request.
@@ -60,7 +64,7 @@ public class OrderServiceImpl implements OrderService {
         // calculate discount
         double discountedPrice = totalPrice;
         if (quantity >= 4) {
-            discountedPrice -= 20.0 * totalPrice / 100.0;
+            discountedPrice -= discountRate * totalPrice;
         }
 
         request.setPriceBeforeDiscount(totalPrice);

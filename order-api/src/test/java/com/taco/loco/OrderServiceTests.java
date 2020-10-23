@@ -5,6 +5,7 @@ import com.taco.loco.domain.OrderModel;
 import com.taco.loco.exception.InvalidOrderException;
 import com.taco.loco.service.MenuItemService;
 import com.taco.loco.service.OrderServiceImpl;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
@@ -13,12 +14,15 @@ import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.Mockito;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.test.util.ReflectionTestUtils;
 
 import java.util.ArrayList;
 import java.util.List;
 
 @SpringBootTest
 public class OrderServiceTests {
+
+    private static final double DISCOUNT_RATE = 0.20;
 
     @Mock
     private MenuItemService menuItemService;
@@ -40,6 +44,7 @@ public class OrderServiceTests {
     private MenuItemModel item4;
     private MenuItemModel item5;
     OrderServiceTests() {
+
         itemIdsWithDiscount = new ArrayList<>();
         itemIdsWithDiscount.add(1L);
         itemIdsWithDiscount.add(2L);
@@ -73,6 +78,11 @@ public class OrderServiceTests {
         invalidOrderRequestWithException = new OrderModel();
         invalidOrderRequestWithException.setItems(itemListWithInvalidItems);
 
+    }
+
+    @BeforeEach
+    public void setUp() {
+        ReflectionTestUtils.setField(orderService, "discountRate", DISCOUNT_RATE);
     }
 
     @DisplayName("Test calculating total with discount.")
