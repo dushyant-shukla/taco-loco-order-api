@@ -87,7 +87,7 @@ password: youshallnotpass
 
 #### BASE URL:
 ```
-http:://{host}:{port}/api
+http:://{host}:{port}/taco-loco/api
 ```
 
 </br>
